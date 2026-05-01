@@ -49,13 +49,13 @@
        only need to edit values here to change the theme.
        ========================================================= */
     :root {
-      --neon-pink:    #ff2d78;  /* accent colour: card corners, section bar, tzkt buttons */
-      --neon-cyan:    #00f0ff;  /* primary colour: logo, card titles, borders, nav tabs    */
-      --neon-yellow:  #ffe600;  /* highlight colour: section labels, info panel labels     */
+      --neon-pink:    #d3d3d3;  /* accent colour: card corners, section bar, tzkt buttons */
+      --neon-cyan:    #acacac;  /* primary colour: logo, card titles, borders, nav tabs    */
+      --neon-yellow:  #e6f3fd;  /* highlight colour: section labels, info panel labels     */
       --dark-bg:      #07000f;  /* page background                                         */
-      --card-bg:      #0d0020;  /* card and info panel background                          */
-      --grid-line:    rgba(0,240,255,0.07);  /* background grid line colour                */
-      --border-dim:   rgba(0,240,255,0.2);   /* default border colour                      */
+      --card-bg:      #312f2b;  /* card and info panel background                          */
+      --grid-line:    rgb(37, 37, 38);  /* background grid line colour                */
+      --border-dim:   rgb(108, 108, 108);   /* default border colour                      */
       --border-bright:rgba(0,240,255,0.6);   /* zoom modal artwork border                  */
     }
     * { box-sizing: border-box; margin:0; padding:0; }
@@ -70,8 +70,7 @@
       content:'';
       position:fixed; inset:0; z-index:0;
       background:
-        repeating-linear-gradient(90deg,  var(--grid-line) 0,var(--grid-line) 1px,transparent 1px,transparent 60px),
-        repeating-linear-gradient(180deg, var(--grid-line) 0,var(--grid-line) 1px,transparent 1px,transparent 60px);
+        linear-gradient(90deg,transparent,var(--grid-line),var(--grid-line),transparent);;
       pointer-events:none;
     }
     body::after {
@@ -435,7 +434,7 @@
          The tagline below can be edited manually.
          ========================================================= -->
     <div class="header-logo" id="artist-name">&#8203;</div><!-- populated from wallet profile -->
-    <div class="header-sub">graphics and netart work on Tezos</div><!-- ← tagline -->
+    <div class="header-sub">Tezos on-chain Art</div><!-- ← tagline -->
   </header>
 
   <nav id="collection-nav"></nav>
@@ -449,9 +448,8 @@
        Replace "https://your-homepage-url.com" with your real URL.
        ========================================================= -->
   <footer class="footer">
-    all artwork is fully on-chain &nbsp;<span>//</span>&nbsp; tezos blockchain &nbsp;<span>//</span>&nbsp; <span id="footer-artist-name"></span><!-- populated from wallet profile -->
-    &nbsp;<span>//</span>&nbsp;
-    <a href="https://x.com/santiagoitzcoat" target="_blank" rel="noopener noreferrer" class="footer-link" id="footer-artist-link">visit <span id="footer-artist-link-name"></span></a>&apos;s x<!-- ← replace href with your homepage URL -->
+    all artwork is fully on-chain &nbsp;<span>//</span>&nbsp; tezos blockchain &nbsp;<span>//</span>&nbsp;
+    <a href="https://x.com/santiagoitzcoat" target="_blank" rel="noopener noreferrer" class="footer-link" id="footer-artist-link"><span id="footer-artist-name"></span></a><!-- ← replace href with your homepage URL -->
   </footer>
 
   <!-- Zoom modal -->
@@ -489,7 +487,7 @@
     // Add or remove KT1... addresses here to control which collections appear.
     // Example: "KT1AbCdEfGhIjKlMnOpQrStUvWxYz123456" — one per line, comma-separated.
     const EXCLUDED_CONTRACTS = new Set([
-      "ADDRESS OF COLLECTION TO EXCLUDE 1",
+      "KT1CB4MYiAViCuXWBU961x7LjQXGeA8SnQwt",
     ]);
 
     // =========================================================
@@ -912,7 +910,7 @@
       const lower = name.toLowerCase();
 
       // 1. Browser tab / page title
-      document.title = name + " — Fully On-Chain Tezos Art";
+      document.title = name + " — On-Chain Art";
 
       // 2. Header logo
       const logo = document.getElementById("artist-name");
